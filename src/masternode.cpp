@@ -106,7 +106,7 @@ void ProcessMessageMasternode(CNode* pfrom, std::string& strCommand, CDataStream
         }
 
         if(Params().NetworkID() == CChainParams::MAIN){
-            if(addr.GetPort() != 9999) return;
+            if(addr.GetPort() != 5555) return;
         }
 
         //search existing masternode list, this is where we update existing masternodes with new dsee broadcasts

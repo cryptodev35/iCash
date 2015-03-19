@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
-// Copyright (c) 2014-2015 The Darkcoin developers
+// Copyright (c) 2014-2015 The iCash developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,7 +29,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate(): QAbstractItemDelegate(), unit(BitcoinUnits::DRK)
+    TxViewDelegate(): QAbstractItemDelegate(), unit(BitcoinUnits::IPAY)
     {
 
     }
@@ -226,7 +226,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(ui->toggleDarksend, SIGNAL(clicked()), this, SLOT(toggleDarksend()));
     }
 
-    // update the display unit, to not use the default ("DRK")
+    // update the display unit, to not use the default ("IPAY")
     updateDisplayUnit();
 }
 
@@ -278,7 +278,7 @@ void OverviewPage::updateDarksendProgress()
     }
 
     //Get the anon threshold
-    int64_t nMaxToAnonymize = nAnonymizeDarkcoinAmount*COIN;
+    int64_t nMaxToAnonymize = nAnonymizeiCashAmount*COIN;
 
     // If it's more than the wallet amount, limit to that.
     if(nMaxToAnonymize > nBalance) nMaxToAnonymize = nBalance;
@@ -333,7 +333,7 @@ void OverviewPage::darkSendStatus()
         strSettings.prepend(QString::number(nDarksendRounds)).prepend(" / ");
         strSettings.prepend(BitcoinUnits::formatWithUnit(
             walletModel->getOptionsModel()->getDisplayUnit(),
-            nAnonymizeDarkcoinAmount * COIN)
+            nAnonymizeiCashAmount * COIN)
         );
 
         ui->labelAmountRounds->setText(strSettings);
@@ -493,7 +493,7 @@ void OverviewPage::toggleDarksend(){
 
         /* show darksend configuration if client has defaults set */
 
-        if(nAnonymizeDarkcoinAmount == 0){
+        if(nAnonymizeiCashAmount == 0){
             DarksendConfig dlg(this);
             dlg.setModel(walletModel);
             dlg.exec();

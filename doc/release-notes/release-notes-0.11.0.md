@@ -1,16 +1,16 @@
 0.11.0 Release notes
 ====================
 
-Darkcoin Core 0.11.0 is forked off the Bitcoin Core 0.9.3. The old darkcoin
+iCash Core 0.11.0 is forked off the Bitcoin Core 0.9.3. The old icash
 versions 0.10.x were forked from the Litecoin 0.8 tree. The following changes
 are introduced in this major release. This list is compiled from the release
 notes of Bitcoin Core  0.9.0, 0.9.1, 0.9.2, 0.9.2.1, 0.9.3 and was completed
-with the  introduced changes to the Darkcoin Core 0.11.0.
+with the  introduced changes to the iCash Core 0.11.0.
 
 
-Darkcoin Core:
+iCash Core:
 
-- Rebrand to `Darkcoin Core`
+- Rebrand to `iCash Core`
 - Version bumped to 0.11 to indicate a new major release
 - Renamed client to identify with network from `Satoshi` to `Core`
 - Bumped protocol version to 70052
@@ -18,16 +18,16 @@ Darkcoin Core:
   public keys only, old scripts remain valid and usable!)
 - Changed testnet address versions to start with `x` or `y` (instead of `m` or
   `n`, this affects public keys only, old wallets remain valid and usable!)
-- Defined BIP32 (HD) address versions to start with `drkp`/`drkv` (`DRKP`/`DRKV`
+- Defined BIP32 (HD) address versions to start with `drkp`/`drkv` (`IPAYP`/`IPAYV`
   for testnet)
-- Adapted BIP44 coin type `5` for Darkcoin (0x80000005) as defined in SLIP-0044
-- Added new units: `duffs` (1 / 100.000.000 DRK)
-- Added units for testnet: tDRK, mtDRK, utDRK, tduffs
+- Adapted BIP44 coin type `5` for iCash (0x80000005) as defined in SLIP-0044
+- Added new units: `duffs` (1 / 100.000.000 IPAY)
+- Added units for testnet: tIPAY, mtIPAY, utIPAY, tduffs
 - Added new DNS seed from masternode.io
 - Fixed wallet locking after sending coins
 - Add `-regtest` mode, similar to testnet but private with instant block
   generation with `setgenerate` RPC.
-- Add separate darkcoin-cli client
+- Add separate icash-cli client
 - Implemented KeyPass integration for CLI, RPC and Qt:
   `keepass`, `keepassport`, `keepasskey`, `keepassid`, `keepassname`
 
@@ -45,9 +45,9 @@ Masternodes:
 
 Darksend:
 
-- Reduced lower darksend limit to 1.5 DRK
+- Reduced lower darksend limit to 1.5 IPAY
 - Fixed progress bar calculation for low amounts
-- Improved support for adding DRK after anon has completed
+- Improved support for adding IPAY after anon has completed
 - Added denomination information to Overview tab
 - Added more detailed Darksend status information to Overview tab
 - Added Darksend high precision matching engine
@@ -100,13 +100,13 @@ Command-line options:
 - New option: -nospendzeroconfchange to never spend unconfirmed change outputs
 - New option: -zapwallettxes to rebuild the wallet's transaction information
 - Rename option '-tor' to '-onion' to better reflect what it does
-- Add '-disablewallet' mode to let darkcoind run entirely without wallet (when
+- Add '-disablewallet' mode to let icashd run entirely without wallet (when
   built with wallet)
 - Update default '-rpcsslciphers' to include TLSv1.2
 - make '-logtimestamps' default on and rework help-message
 - RPC client option: '-rpcwait', to wait for server start
 - Remove '-logtodebugger'
-- Allow `-noserver` with darkcoind
+- Allow `-noserver` with icashd
 - Make -proxy set all network types, avoiding a connect leak.
 
 
@@ -137,7 +137,7 @@ Protocol and network code:
 - Prevent socket leak in ThreadSocketHandler and correct some proxy related
   socket leaks
 - Use pnode->nLastRecv as sync score (was the wrong way around)
-- Drop the fee required to relay a transaction to 0.01mDRK per kilobyte
+- Drop the fee required to relay a transaction to 0.01mIPAY per kilobyte
 - Send tx relay flag with version
 - New 'reject' P2P message (BIP 0061, see
   https://gist.github.com/gavinandresen/7079034 for draft)
@@ -206,7 +206,7 @@ GUI:
 - Optionally add third party links to transaction context menu
 - Check for !pixmap() before trying to export QR code (avoids crashes when no QR
   code could be generated)
-- Fix "Start darkcoin on system login"
+- Fix "Start icash on system login"
 - Switch to Qt 5.2.0 for Windows build
 - Add payment request (BIP 0070) support
 - Improve options dialog
@@ -223,14 +223,14 @@ GUI:
 - Move initialization/shutdown to a thread. This prevents "Not responding"
   messages during startup. Also show a window during shutdown.
 - Don't regenerate autostart link on every client startup
-- Show and store message of normal darkcoin:URI
+- Show and store message of normal icash:URI
 - Fix richtext detection hang issue on very old Qt versions
 - OS X: Make use of the 10.8+ user notification center to display Growl-like
   notifications
 - OS X: Added NSHighResolutionCapable flag to Info.plist for better font
   rendering on Retina displays.
-- OS X: Fix darkcoin-qt startup crash when clicking dock icon
-- Linux: Fix Gnome darkcoin: URI handler
+- OS X: Fix icash-qt startup crash when clicking dock icon
+- Linux: Fix Gnome icash: URI handler
 
 
 Validation:
