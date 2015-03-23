@@ -61,7 +61,7 @@ int GetMasternodeByRank(int findRank, int64_t nBlockHeight=0, int minProtocol=0)
 void ProcessMessageMasternode(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
 
 //
-// The Masternode Class. For managing the darksend process. It contains the input of the 1000IPAY, signature to prove
+// The Masternode Class. For managing the darksend process. It contains the input of the 1000ICASH, signature to prove
 // it's the one who own that ip address and code for calculating the payment election.
 //
 class CMasterNode

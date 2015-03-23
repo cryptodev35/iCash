@@ -1102,13 +1102,13 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="78"/>
-        <source>Use 2 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>使用2个独立主节点进行混合至多1000个IPAY</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>使用2个独立主节点进行混合至多1000个ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="91"/>
-        <source>Use 8 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>使用8个独立主节点进行混合至多1000个IPAY</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>使用8个独立主节点进行混合至多1000个ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="104"/>
@@ -1117,18 +1117,18 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="117"/>
-        <source>This option is the quickest and will cost about ~0.025 IPAY to anonymize 1000 IPAY</source>
-        <translation>此选项提供最快速度并且将花费大概0.025IPAY的费用以匿名化1000IPAY</translation>
+        <source>This option is the quickest and will cost about ~0.025 ICASH to anonymize 1000 ICASH</source>
+        <translation>此选项提供最快速度并且将花费大概0.025ICASH的费用以匿名化1000ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="130"/>
-        <source>This option is moderately fast and will cost about 0.05 IPAY to anonymize 1000 IPAY</source>
-        <translation>此选项提供中等速度并且将花费大概0.05IPAY的费用以匿名化1000IPAY</translation>
+        <source>This option is moderately fast and will cost about 0.05 ICASH to anonymize 1000 ICASH</source>
+        <translation>此选项提供中等速度并且将花费大概0.05ICASH的费用以匿名化1000ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="156"/>
-        <source>0.1 IPAY per 1000 IPAY you anonymize.</source>
-        <translation>0.1IPAY每匿名化1000IPAY</translation>
+        <source>0.1 ICASH per 1000 ICASH you anonymize.</source>
+        <translation>0.1ICASH每匿名化1000ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="143"/>
@@ -1764,8 +1764,8 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="349"/>
-        <source>0 IPAY</source>
-        <translation>0 IPAY</translation>
+        <source>0 ICASH</source>
+        <translation>0 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="356"/>
@@ -1774,8 +1774,8 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="363"/>
-        <source>0 IPAY / 0 Rounds</source>
-        <translation>0 IPAY/ 0 轮循环</translation>
+        <source>0 ICASH / 0 Rounds</source>
+        <translation>0 ICASH/ 0 轮循环</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="370"/>
@@ -1785,7 +1785,7 @@ Address: %4
     <message>
         <location filename="../forms/overviewpage.ui" line="377"/>
         <source>The denominations you submitted to the Masternode. To mix, other users must submit the exact same denominations.</source>
-        <translation>您向主节点所提交的用以面额化混合的IPAY，当其他用户提交相同的面额化IPAY数量时，将开始混合。</translation>
+        <translation>您向主节点所提交的用以面额化混合的ICASH，当其他用户提交相同的面额化ICASH数量时，将开始混合。</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="380"/>
@@ -4041,7 +4041,7 @@ for example: alertnotify=echo %%s | mail -s &quot;iCash Alert&quot; admin@foo.co
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="138"/>
-        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 IPAY.</source>
+        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 ICASH.</source>
         <translation type="unfinished"/>
     </message>
     <message>

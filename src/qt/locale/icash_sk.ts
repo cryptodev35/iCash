@@ -1101,12 +1101,12 @@ Adresa: %4</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="78"/>
-        <source>Use 2 separate masternodes to mix funds up to 1000 IPAY</source>
+        <source>Use 2 separate masternodes to mix funds up to 1000 ICASH</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="91"/>
-        <source>Use 8 separate masternodes to mix funds up to 1000 IPAY</source>
+        <source>Use 8 separate masternodes to mix funds up to 1000 ICASH</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1116,17 +1116,17 @@ Adresa: %4</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="117"/>
-        <source>This option is the quickest and will cost about ~0.025 IPAY to anonymize 1000 IPAY</source>
+        <source>This option is the quickest and will cost about ~0.025 ICASH to anonymize 1000 ICASH</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="130"/>
-        <source>This option is moderately fast and will cost about 0.05 IPAY to anonymize 1000 IPAY</source>
+        <source>This option is moderately fast and will cost about 0.05 ICASH to anonymize 1000 ICASH</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="156"/>
-        <source>0.1 IPAY per 1000 IPAY you anonymize.</source>
+        <source>0.1 ICASH per 1000 ICASH you anonymize.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1762,8 +1762,8 @@ Adresa: %4</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="349"/>
-        <source>0 IPAY</source>
-        <translation>0 IPAY</translation>
+        <source>0 ICASH</source>
+        <translation>0 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="356"/>
@@ -1772,7 +1772,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="363"/>
-        <source>0 IPAY / 0 Rounds</source>
+        <source>0 ICASH / 0 Rounds</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4038,7 +4038,7 @@ for example: alertnotify=echo %%s | mail -s &quot;iCash Alert&quot; admin@foo.co
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="138"/>
-        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 IPAY.</source>
+        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 ICASH.</source>
         <translation type="unfinished"/>
     </message>
     <message>

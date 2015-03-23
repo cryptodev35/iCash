@@ -1101,13 +1101,13 @@ Endereço: %4</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="78"/>
-        <source>Use 2 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>Usar 2 Masternodes separados para fazer a mixagem de fundos até 1000 IPAY</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>Usar 2 Masternodes separados para fazer a mixagem de fundos até 1000 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="91"/>
-        <source>Use 8 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>Usar 8 Masternodes separados para fazer a mixagem de fundos até 1000 IPAY</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>Usar 8 Masternodes separados para fazer a mixagem de fundos até 1000 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="104"/>
@@ -1116,18 +1116,18 @@ Endereço: %4</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="117"/>
-        <source>This option is the quickest and will cost about ~0.025 IPAY to anonymize 1000 IPAY</source>
-        <translation>Esta é a opção mais rápida e custará em torno de ~0,025 IPAY para anonimizar 1000 IPAY</translation>
+        <source>This option is the quickest and will cost about ~0.025 ICASH to anonymize 1000 ICASH</source>
+        <translation>Esta é a opção mais rápida e custará em torno de ~0,025 ICASH para anonimizar 1000 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="130"/>
-        <source>This option is moderately fast and will cost about 0.05 IPAY to anonymize 1000 IPAY</source>
-        <translation>Esta opção é moderadamente rápida e custará em torno de ~0,05 IPAY para anonimizar 1000 IPAY</translation>
+        <source>This option is moderately fast and will cost about 0.05 ICASH to anonymize 1000 ICASH</source>
+        <translation>Esta opção é moderadamente rápida e custará em torno de ~0,05 ICASH para anonimizar 1000 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="156"/>
-        <source>0.1 IPAY per 1000 IPAY you anonymize.</source>
-        <translation>0,1 IPAY por cada 1000 IPAY que você anonimizar.</translation>
+        <source>0.1 ICASH per 1000 ICASH you anonymize.</source>
+        <translation>0,1 ICASH por cada 1000 ICASH que você anonimizar.</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="143"/>
@@ -1762,7 +1762,7 @@ Endereço: %4</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="349"/>
-        <source>0 IPAY</source>
+        <source>0 ICASH</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1772,7 +1772,7 @@ Endereço: %4</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="363"/>
-        <source>0 IPAY / 0 Rounds</source>
+        <source>0 ICASH / 0 Rounds</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4038,7 +4038,7 @@ for example: alertnotify=echo %%s | mail -s &quot;iCash Alert&quot; admin@foo.co
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="138"/>
-        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 IPAY.</source>
+        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 ICASH.</source>
         <translation type="unfinished"/>
     </message>
     <message>

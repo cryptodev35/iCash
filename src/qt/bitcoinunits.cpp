@@ -16,9 +16,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(IPAY);
-    unitlist.append(mIPAY);
-    unitlist.append(uIPAY);
+    unitlist.append(ICASH);
+    unitlist.append(mICASH);
+    unitlist.append(uICASH);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -27,9 +27,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case IPAY:
-    case mIPAY:
-    case uIPAY:
+    case ICASH:
+    case mICASH:
+    case uICASH:
     case duffs:
         return true;
     default:
@@ -43,9 +43,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case IPAY: return QString("IPAY");
-            case mIPAY: return QString("mIPAY");
-            case uIPAY: return QString::fromUtf8("μIPAY");
+            case ICASH: return QString("ICASH");
+            case mICASH: return QString("mICASH");
+            case uICASH: return QString::fromUtf8("μICASH");
             case duffs: return QString::fromUtf8("duffs");
             default: return QString("???");
         }
@@ -54,9 +54,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case IPAY: return QString("tIPAY");
-            case mIPAY: return QString("mtIPAY");
-            case uIPAY: return QString::fromUtf8("μtIPAY");
+            case ICASH: return QString("tICASH");
+            case mICASH: return QString("mtICASH");
+            case uICASH: return QString::fromUtf8("μtICASH");
             case duffs: return QString::fromUtf8("tduffs");
             default: return QString("???");
         }
@@ -69,9 +69,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case IPAY: return QString("iCashs");
-            case mIPAY: return QString("Milli-iCashs (1 / 1,000)");
-            case uIPAY: return QString("Micro-iCashs (1 / 1,000,000)");
+            case ICASH: return QString("iCashs");
+            case mICASH: return QString("Milli-iCashs (1 / 1,000)");
+            case uICASH: return QString("Micro-iCashs (1 / 1,000,000)");
             case duffs: return QString("Ten Nano-iCashs (1 / 100,000,000)");
             default: return QString("???");
         }
@@ -80,9 +80,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case IPAY: return QString("Testicashs");
-            case mIPAY: return QString("Milli-Testicashs (1 / 1,000)");
-            case uIPAY: return QString("Micro-Testicashs (1 / 1,000,000)");
+            case ICASH: return QString("Testicashs");
+            case mICASH: return QString("Milli-Testicashs (1 / 1,000)");
+            case uICASH: return QString("Micro-Testicashs (1 / 1,000,000)");
             case duffs: return QString("Ten Nano-Testicashs (1 / 100,000,000)");
             default: return QString("???");
         }
@@ -93,9 +93,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case IPAY:  return 100000000;
-    case mIPAY: return 100000;
-    case uIPAY: return 100;
+    case ICASH:  return 100000000;
+    case mICASH: return 100000;
+    case uICASH: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -105,9 +105,9 @@ qint64 BitcoinUnits::maxAmount(int unit)
 {
     switch(unit)
     {
-    case IPAY:  return Q_INT64_C(21000000);
-    case mIPAY: return Q_INT64_C(21000000000);
-    case uIPAY: return Q_INT64_C(21000000000000);
+    case ICASH:  return Q_INT64_C(21000000);
+    case mICASH: return Q_INT64_C(21000000000);
+    case uICASH: return Q_INT64_C(21000000000000);
     case duffs: return Q_INT64_C(2100000000000000);
     default:   return 0;
     }
@@ -117,9 +117,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case IPAY: return 8; // 21,000,000 (# digits, without commas)
-    case mIPAY: return 11; // 21,000,000,000
-    case uIPAY: return 14; // 21,000,000,000,000
+    case ICASH: return 8; // 21,000,000 (# digits, without commas)
+    case mICASH: return 11; // 21,000,000,000
+    case uICASH: return 14; // 21,000,000,000,000
     case duffs: return 16; // 2,100,000,000,000,000
     default: return 0;
     }
@@ -129,9 +129,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case IPAY: return 8;
-    case mIPAY: return 5;
-    case uIPAY: return 2;
+    case ICASH: return 8;
+    case mICASH: return 5;
+    case uICASH: return 2;
     case duffs: return 0;
     default: return 0;
     }

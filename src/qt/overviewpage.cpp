@@ -29,7 +29,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate(): QAbstractItemDelegate(), unit(BitcoinUnits::IPAY)
+    TxViewDelegate(): QAbstractItemDelegate(), unit(BitcoinUnits::ICASH)
     {
 
     }
@@ -226,7 +226,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(ui->toggleDarksend, SIGNAL(clicked()), this, SLOT(toggleDarksend()));
     }
 
-    // update the display unit, to not use the default ("IPAY")
+    // update the display unit, to not use the default ("ICASH")
     updateDisplayUnit();
 }
 

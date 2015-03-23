@@ -26,9 +26,9 @@ public:
      */
     enum Unit
     {
-        IPAY,
-        mIPAY,
-        uIPAY,
+        ICASH,
+        mICASH,
+        uICASH,
         duffs
     };
 

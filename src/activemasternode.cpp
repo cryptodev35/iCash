@@ -5,7 +5,7 @@
 #include <boost/lexical_cast.hpp>
 
 //
-// Bootup the masternode, look for a 1000IPAY input and register on the network
+// Bootup the masternode, look for a 1000ICASH input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {

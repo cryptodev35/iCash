@@ -137,7 +137,7 @@ QT_TRANSLATE_NOOP("icash-core", ""
 "Unable to locate enough Darksend denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("icash-core", ""
 "Unable to locate enough Darksend non-denominated funds for this transaction "
-"that are not equal 1000 IPAY."),
+"that are not equal 1000 ICASH."),
 QT_TRANSLATE_NOOP("icash-core", ""
 "Unable to locate enough Darksend non-denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("icash-core", ""

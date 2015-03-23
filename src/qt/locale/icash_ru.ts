@@ -1102,13 +1102,13 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="78"/>
-        <source>Use 2 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>Использовать 2 отдельные мастерноды для перемешивания до 1000 IPAY</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>Использовать 2 отдельные мастерноды для перемешивания до 1000 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="91"/>
-        <source>Use 8 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>Использовать 8 отдельных мастернод для перемешивания до 1000 IPAY</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>Использовать 8 отдельных мастернод для перемешивания до 1000 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="104"/>
@@ -1117,18 +1117,18 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="117"/>
-        <source>This option is the quickest and will cost about ~0.025 IPAY to anonymize 1000 IPAY</source>
-        <translation>Это самый быстрый вариант, анонимизация 1000 IPAY будет стоить вам примерно 0.025 IPAY</translation>
+        <source>This option is the quickest and will cost about ~0.025 ICASH to anonymize 1000 ICASH</source>
+        <translation>Это самый быстрый вариант, анонимизация 1000 ICASH будет стоить вам примерно 0.025 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="130"/>
-        <source>This option is moderately fast and will cost about 0.05 IPAY to anonymize 1000 IPAY</source>
-        <translation>Это относительно быстрый вариант, анонимизация 1000 IPAY будет стоить вам примерно 0.05 IPAY</translation>
+        <source>This option is moderately fast and will cost about 0.05 ICASH to anonymize 1000 ICASH</source>
+        <translation>Это относительно быстрый вариант, анонимизация 1000 ICASH будет стоить вам примерно 0.05 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="156"/>
-        <source>0.1 IPAY per 1000 IPAY you anonymize.</source>
-        <translation>0.1 IPAY за каждые анонимизированные 1000 IPAY.</translation>
+        <source>0.1 ICASH per 1000 ICASH you anonymize.</source>
+        <translation>0.1 ICASH за каждые анонимизированные 1000 ICASH.</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="143"/>
@@ -1763,8 +1763,8 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="349"/>
-        <source>0 IPAY</source>
-        <translation>0 IPAY</translation>
+        <source>0 ICASH</source>
+        <translation>0 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="356"/>
@@ -1773,8 +1773,8 @@ Address: %4
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="363"/>
-        <source>0 IPAY / 0 Rounds</source>
-        <translation>0 IPAY / 0 раундов</translation>
+        <source>0 ICASH / 0 Rounds</source>
+        <translation>0 ICASH / 0 раундов</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="370"/>
@@ -4050,8 +4050,8 @@ rpcpassword=%s
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="138"/>
-        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 IPAY.</source>
-        <translation>Не удалось обнаружить достаточных для выполнения этой транзакции неденоминированных средств, отличающихся от 1000IPAY.</translation>
+        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 ICASH.</source>
+        <translation>Не удалось обнаружить достаточных для выполнения этой транзакции неденоминированных средств, отличающихся от 1000ICASH.</translation>
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="141"/>

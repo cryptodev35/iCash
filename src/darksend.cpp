@@ -766,7 +766,7 @@ void CDarkSendPool::ChargeRandomFees(){
                 with using it to stop abuse. Otherwise it could serve as an attack vector and
                 allow endless transaction that would bloat iCash and make it unusable. To
                 stop these kinds of attacks 1 in 50 successful transactions are charged. This
-                adds up to a cost of 0.002IPAY per transaction on average.
+                adds up to a cost of 0.002ICASH per transaction on average.
             */
             if(r <= 20)
             {
@@ -1455,7 +1455,7 @@ bool CDarkSendPool::DoAutomaticDenominating(bool fDryRun, bool ready)
         if(sessionTotalValue > nBalanceNeedsAnonymized) sessionTotalValue = nBalanceNeedsAnonymized;
 
         double fiCashSubmitted = (sessionTotalValue / CENT);
-        LogPrintf("Submitting Darksend for %f IPAY CENT - sessionTotalValue %d\n", fiCashSubmitted, sessionTotalValue);
+        LogPrintf("Submitting Darksend for %f ICASH CENT - sessionTotalValue %d\n", fiCashSubmitted, sessionTotalValue);
 
         if(pwalletMain->GetDenominatedBalance(true, true) > 0){ //get denominated unconfirmed inputs
             LogPrintf("DoAutomaticDenominating -- Found unconfirmed denominated outputs, will wait till they confirm to continue.\n");
@@ -1839,10 +1839,10 @@ bool CDarkSendPool::IsCompatibleWithSession(int64_t nDenom, CTransaction txColla
 void CDarkSendPool::GetDenominationsToString(int nDenom, std::string& strDenom){
     // Function returns as follows:
     //
-    // bit 0 - 100IPAY+1 ( bit on if present )
-    // bit 1 - 10IPAY+1
-    // bit 2 - 1IPAY+1
-    // bit 3 - .1IPAY+1
+    // bit 0 - 100ICASH+1 ( bit on if present )
+    // bit 1 - 10ICASH+1
+    // bit 2 - 1ICASH+1
+    // bit 3 - .1ICASH+1
     // bit 3 - non-denom
 
 
@@ -1898,10 +1898,10 @@ int CDarkSendPool::GetDenominations(const std::vector<CTxOut>& vout){
 
     // Function returns as follows:
     //
-    // bit 0 - 100IPAY+1 ( bit on if present )
-    // bit 1 - 10IPAY+1
-    // bit 2 - 1IPAY+1
-    // bit 3 - .1IPAY+1
+    // bit 0 - 100ICASH+1 ( bit on if present )
+    // bit 1 - 10ICASH+1
+    // bit 2 - 1ICASH+1
+    // bit 3 - .1ICASH+1
 
     return denom;
 }

@@ -30,7 +30,7 @@ using namespace boost;
 #define SPORK_2_INSTANTX_DEFAULT                              978307200   //2001-1-1
 #define SPORK_3_INSTANTX_BLOCK_FILTERING_DEFAULT              1424217600  //2015-2-18
 #define SPORK_4_RECONVERGE_DEFAULT                            1420070400  //2047-1-1
-#define SPORK_5_MAX_VALUE_DEFAULT                             1000        //1000 IPAY
+#define SPORK_5_MAX_VALUE_DEFAULT                             1000        //1000 ICASH
 #define SPORK_6_REPLAY_BLOCKS_DEFAULT                         0
 
 class CSporkMessage;

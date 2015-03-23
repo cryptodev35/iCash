@@ -1103,13 +1103,13 @@ Adres: %4
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="78"/>
-        <source>Use 2 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>Gebruik 2 verschillende masternodes om tot en met  1000IPAY te mixen</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>Gebruik 2 verschillende masternodes om tot en met  1000ICASH te mixen</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="91"/>
-        <source>Use 8 separate masternodes to mix funds up to 1000 IPAY</source>
-        <translation>Gebruik 8 verschillende masternodes om tot en met  1000IPAY te mixen</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 ICASH</source>
+        <translation>Gebruik 8 verschillende masternodes om tot en met  1000ICASH te mixen</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="104"/>
@@ -1118,18 +1118,18 @@ Adres: %4
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="117"/>
-        <source>This option is the quickest and will cost about ~0.025 IPAY to anonymize 1000 IPAY</source>
-        <translation>Deze optie is het snelst en kost ongeveer ~0.025IPAY om 1000IPAY te anonimiseren</translation>
+        <source>This option is the quickest and will cost about ~0.025 ICASH to anonymize 1000 ICASH</source>
+        <translation>Deze optie is het snelst en kost ongeveer ~0.025ICASH om 1000ICASH te anonimiseren</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="130"/>
-        <source>This option is moderately fast and will cost about 0.05 IPAY to anonymize 1000 IPAY</source>
-        <translation>Deze optie is relatief snel en zal ongeveer 0.05 IPAY kosten om 1000 IPAY te anonimiseren </translation>
+        <source>This option is moderately fast and will cost about 0.05 ICASH to anonymize 1000 ICASH</source>
+        <translation>Deze optie is relatief snel en zal ongeveer 0.05 ICASH kosten om 1000 ICASH te anonimiseren </translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="156"/>
-        <source>0.1 IPAY per 1000 IPAY you anonymize.</source>
-        <translation>0.1 IPAY per 1000 IPAY die je anonimiseert.</translation>
+        <source>0.1 ICASH per 1000 ICASH you anonymize.</source>
+        <translation>0.1 ICASH per 1000 ICASH die je anonimiseert.</translation>
     </message>
     <message>
         <location filename="../forms/darksendconfig.ui" line="143"/>
@@ -1764,8 +1764,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="349"/>
-        <source>0 IPAY</source>
-        <translation>0 IPAY</translation>
+        <source>0 ICASH</source>
+        <translation>0 ICASH</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="356"/>
@@ -1774,8 +1774,8 @@ Adres: %4
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="363"/>
-        <source>0 IPAY / 0 Rounds</source>
-        <translation>0 IPAY / 0 Rondes</translation>
+        <source>0 ICASH / 0 Rounds</source>
+        <translation>0 ICASH / 0 Rondes</translation>
     </message>
     <message>
         <location filename="../forms/overviewpage.ui" line="370"/>
@@ -4041,7 +4041,7 @@ for example: alertnotify=echo %%s | mail -s &quot;iCash Alert&quot; admin@foo.co
     </message>
     <message>
         <location filename="../bitcoinstrings.cpp" line="138"/>
-        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 IPAY.</source>
+        <source>Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 ICASH.</source>
         <translation type="unfinished"/>
     </message>
     <message>

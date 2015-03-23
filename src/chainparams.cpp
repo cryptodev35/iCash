@@ -135,8 +135,8 @@ public:
         base58Prefixes[PUBKEY_ADDRESS] = list_of(139);                    // Testnet icash addresses start with 'x' or 'y'
         base58Prefixes[SCRIPT_ADDRESS] = list_of( 19);                    // Testnet icash script addresses start with '8' or '9'
         base58Prefixes[SECRET_KEY]     = list_of(239);                    // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x3a)(0x80)(0x61)(0xa0); // Testnet icash BIP32 pubkeys start with 'IPAYV'
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x3a)(0x80)(0x58)(0x37); // Testnet icash BIP32 prvkeys start with 'IPAYP'
+        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x3a)(0x80)(0x61)(0xa0); // Testnet icash BIP32 pubkeys start with 'ICASHV'
+        base58Prefixes[EXT_SECRET_KEY] = list_of(0x3a)(0x80)(0x58)(0x37); // Testnet icash BIP32 prvkeys start with 'ICASHP'
         base58Prefixes[EXT_COIN_TYPE]  = list_of(0x80000001);             // Testnet icash BIP44 coin type is '5' (All coin's testnet default)
     }
     virtual Network NetworkID() const { return CChainParams::TESTNET; }
