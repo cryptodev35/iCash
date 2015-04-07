@@ -13,6 +13,7 @@ DIST_SUBDIRS = . test
 # icash qt core #
 QT_TS = \
   locale/icash_bar.ts \
+  locale/icash_bg.ts \
   locale/icash_ca.ts \
   locale/icash_cmn.ts \
   locale/icash_cs.ts \
@@ -27,6 +28,7 @@ QT_TS = \
   locale/icash_hu_HU.ts \
   locale/icash_it.ts \
   locale/icash_lv_LV.ts \
+  locale/icash_nb.ts \
   locale/icash_nl.ts \
   locale/icash_pl.ts \
   locale/icash_pt.ts \
@@ -115,8 +117,8 @@ QT_MOC = \
   overviewpage.moc \
   rpcconsole.moc
 
-QT_QRC_CPP = qrc_bitcoin.cpp
-QT_QRC = bitcoin.qrc
+QT_QRC_CPP = qrc_icash.cpp
+QT_QRC = icash.qrc
 
 PROTOBUF_CC = paymentrequest.pb.cc
 PROTOBUF_H = paymentrequest.pb.h
@@ -216,7 +218,12 @@ RES_ICONS = \
   res/icons/tx_inout.png \
   res/icons/tx_input.png \
   res/icons/tx_output.png \
-  res/icons/tx_mined.png
+  res/icons/tx_mined.png \
+  res/icons/drkblue_editpaste.png \
+  res/icons/drkblue_address-book.png \
+  res/icons/drkblue_editcopy.png \
+  res/icons/drkblue_remove.png
+
 
 BITCOIN_QT_CPP = \
   icash.cpp \
@@ -275,16 +282,26 @@ endif
 RES_IMAGES = \
   res/images/about.png \
   res/images/splash.png \
-  res/images/splash_testnet.png
+  res/images/splash_testnet.png \
+  res/images/icash_logo_horizontal.png \
+  res/images/drkblue_downArrow.png \
+  res/images/drkblue_downArrow_small.png \
+  res/images/drkblue_upArrow_small.png \
+  res/images/drkblue_qtreeview_selected.png \
+  res/images/drkblue_walletFrame_bg.png \
+  res/images/drkblue_walletFrame.png
 
+RES_CSS = \
+  res/css/drkblue.css
+  
 RES_MOVIES = $(wildcard res/movies/spinner-*.png)
 
-BITCOIN_RC = res/bitcoin-qt-res.rc
+ICASH_RC = res/icash-qt-res.rc
 
 libicashqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms $(QT_DBUS_INCLUDES)
 libicashqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
-  $(QT_QRC) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
+  $(QT_QRC) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(RES_CSS)
 
 nodist_libicashqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP)
@@ -304,7 +321,7 @@ if TARGET_DARWIN
   icash_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  icash_qt_SOURCES += $(BITCOIN_RC)
+  icash_qt_SOURCES += $(ICASH_RC)
 endif
 icash_qt_LDADD = libicashqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
@@ -323,14 +340,14 @@ QT_QM=$(QT_TS:.ts=.qm)
 .PHONY: FORCE
 .SECONDARY: $(QT_QM)
 
-bitcoinstrings.cpp: FORCE
-	$(MAKE) -C $(top_srcdir)/src qt/bitcoinstrings.cpp
+icashstrings.cpp: FORCE
+	$(MAKE) -C $(top_srcdir)/src qt/icashstrings.cpp
 
-translate: bitcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: icashstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
 	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/icash_en.ts
 
-$(QT_QRC_CPP): $(QT_QRC) $(QT_QM) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
+$(QT_QRC_CPP): $(QT_QRC) $(QT_QM) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(RES_CSS) $(PROTOBUF_H)
 	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name icash -o $(abs_builddir)/$@ $< || \
 	  echo error: could not build $@
 	$(SED) -e '/^\*\*.*Created:/d' $@ > $@.n && mv $@{.n,}

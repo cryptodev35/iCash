@@ -41,6 +41,7 @@ BITCOIN_CORE_H = \
   core.h \
   crypter.h \
   darksend.h \
+  darksend-relay.h \
   db.h \
   hash.h \
   init.h \
@@ -52,6 +53,8 @@ BITCOIN_CORE_H = \
   limitedmap.h \
   main.h \
   masternode.h \
+  masternode-pos.h \
+  masternodeman.h \
   masternodeconfig.h \
   miner.h \
   mruset.h \
@@ -150,7 +153,10 @@ libicash_common_a_SOURCES = \
   chainparams.cpp \
   core.cpp \
   darksend.cpp \
+  darksend-relay.cpp \
   masternode.cpp \
+  masternode-pos.cpp \
+  masternodeman.cpp \
   masternodeconfig.cpp \
   instantx.cpp \
   hash.cpp \
@@ -203,7 +209,7 @@ icashd_SOURCES = icashd.cpp
 #
 
 if TARGET_WINDOWS
-icashd_SOURCES += bitcoind-res.rc
+icashd_SOURCES += icashd-res.rc
 endif
 
 AM_CPPFLAGS += $(BDB_CPPFLAGS)
@@ -218,7 +224,7 @@ icash_cli_SOURCES = icash-cli.cpp
 #
 
 if TARGET_WINDOWS
-icash_cli_SOURCES += bitcoin-cli-res.rc
+icash_cli_SOURCES += icash-cli-res.rc
 endif
 
 # NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race
@@ -229,7 +235,7 @@ leveldb/%.a:
 	  CC="$(CC)" PLATFORM=$(TARGET_OS) AR="$(AR)" $(LEVELDB_TARGET_FLAGS) \
 	  OPT="$(CXXFLAGS) $(CPPFLAGS)"
 
-qt/bitcoinstrings.cpp: $(libicash_server_a_SOURCES) $(libicash_common_a_SOURCES) $(libicash_cli_a_SOURCES)
+qt/icashstrings.cpp: $(libicash_server_a_SOURCES) $(libicash_common_a_SOURCES) $(libicash_cli_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	@cd $(top_srcdir); XGETTEXT=$(XGETTEXT) share/qt/extract_strings_qt.py
 

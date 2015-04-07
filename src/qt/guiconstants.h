@@ -43,7 +43,7 @@ static const int MAX_PAYMENT_REQUEST_SIZE = 50000; // bytes
 #define SPINNER_FRAMES 35
 
 #define QAPP_ORG_NAME "iCash"
-#define QAPP_ORG_DOMAIN "icash.io"
+#define QAPP_ORG_DOMAIN "icashpay.io"
 #define QAPP_APP_NAME_DEFAULT "iCash-Qt"
 #define QAPP_APP_NAME_TESTNET "iCash-Qt-testnet"
 

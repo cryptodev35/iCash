@@ -12,7 +12,7 @@ Files and Folders
 This file takes care of generating `.qm` files from `.ts` files. It is mostly
 automated.
 
-### src/qt/bitcoin.qrc
+### src/qt/icash.qrc
 
 This file must be updated whenever a new translation is added. Please note that
 files must end with `.qm`, not `.ts`.
@@ -60,7 +60,7 @@ in Transifex and can be translated.
 
 To create the pull-request you have to do:
 
-    git add src/qt/bitcoinstrings.cpp src/qt/locale/icash_en.ts
+    git add src/qt/icashstrings.cpp src/qt/locale/icash_en.ts
     git commit
 
 Syncing with Transifex
@@ -80,8 +80,8 @@ postprocessing steps before committing the translations.
 ### Fetching new translations
 
 1. `python contrib/devtools/update-translations.py`
-2. update `src/qt/bitcoin.qrc` manually or via
-   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(icash_\(.*\)\).ts/<file alias="\2">locale\/\1.qm<\/file>/'`
+2. update `src/qt/icash.qrc` manually or via
+   `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(icash_\(.*\)\).ts/        <file alias="\2">locale\/\1.qm<\/file>/'`
 3. update `src/qt/Makefile.am` manually or via
    `ls src/qt/locale/*ts|xargs -n1 basename|sed 's/\(icash_\(.*\)\).ts/  locale\/\1.ts \\/'`
 4. `git add` new translations from `src/qt/locale/`

@@ -69,10 +69,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case ICASH: return QString("iCashs");
-            case mICASH: return QString("Milli-iCashs (1 / 1,000)");
-            case uICASH: return QString("Micro-iCashs (1 / 1,000,000)");
-            case duffs: return QString("Ten Nano-iCashs (1 / 100,000,000)");
+            case ICASH: return QString("iCash");
+            case mICASH: return QString("Milli-iCash (1 / 1,000)");
+            case uICASH: return QString("Micro-iCash (1 / 1,000,000)");
+            case duffs: return QString("Ten Nano-iCash (1 / 100,000,000)");
             default: return QString("???");
         }
     }
@@ -80,10 +80,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case ICASH: return QString("Testicashs");
-            case mICASH: return QString("Milli-Testicashs (1 / 1,000)");
-            case uICASH: return QString("Micro-Testicashs (1 / 1,000,000)");
-            case duffs: return QString("Ten Nano-Testicashs (1 / 100,000,000)");
+            case ICASH: return QString("TestiCashs");
+            case mICASH: return QString("Milli-TestiCash (1 / 1,000)");
+            case uICASH: return QString("Micro-TestiCash (1 / 1,000,000)");
+            case duffs: return QString("Ten Nano-TestiCash (1 / 100,000,000)");
             default: return QString("???");
         }
     }

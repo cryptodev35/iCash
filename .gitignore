@@ -1,11 +1,11 @@
 *.tar.gz
 
 *.exe
-src/darkcoin
-src/darkcoind
-src/darkcoin-cli
-src/test/test_darkcoin
-src/qt/test/test_darkcoin-qt
+src/icash
+src/icashd
+src/icash-cli
+src/test/test_icash
+src/qt/test/test_icash-qt
 
 Makefile.in
 aclocal.m4
@@ -13,8 +13,8 @@ autom4te.cache/
 config.log
 config.status
 configure
-src/bitcoin-config.h
-src/bitcoin-config.h.in
+src/icash-config.h
+src/icash-config.h.in
 src/build-aux/
 src/stamp-h1
 share/setup.nsi
@@ -36,7 +36,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.darkcoin
+.icash
 *.a
 *.pb.cc
 *.pb.h
@@ -51,12 +51,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-darkcoin-qt
-Darkcoin-Qt.app
+icash-qt
+iCash-Qt.app
 
 # Unit-tests
 Makefile.test
-darkcoin-qt_test
+icash-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -76,7 +76,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_darkcoin.coverage/
+test_icash.coverage/
 total.coverage/
 coverage_percent.txt
 

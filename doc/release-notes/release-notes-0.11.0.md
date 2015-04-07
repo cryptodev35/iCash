@@ -18,11 +18,11 @@ iCash Core:
   public keys only, old scripts remain valid and usable!)
 - Changed testnet address versions to start with `x` or `y` (instead of `m` or
   `n`, this affects public keys only, old wallets remain valid and usable!)
-- Defined BIP32 (HD) address versions to start with `drkp`/`drkv` (`ICASHP`/`ICASHV`
+- Defined BIP32 (HD) address versions to start with `drkp`/`drkv` (`DRKP`/`DRKV`
   for testnet)
 - Adapted BIP44 coin type `5` for iCash (0x80000005) as defined in SLIP-0044
 - Added new units: `duffs` (1 / 100.000.000 ICASH)
-- Added units for testnet: tICASH, mtICASH, utICASH, tduffs
+- Added units for testnet: tDRK, mtDRK, utDRK, tduffs
 - Added new DNS seed from masternode.io
 - Fixed wallet locking after sending coins
 - Add `-regtest` mode, similar to testnet but private with instant block
@@ -137,7 +137,7 @@ Protocol and network code:
 - Prevent socket leak in ThreadSocketHandler and correct some proxy related
   socket leaks
 - Use pnode->nLastRecv as sync score (was the wrong way around)
-- Drop the fee required to relay a transaction to 0.01mICASH per kilobyte
+- Drop the fee required to relay a transaction to 0.01mDRK per kilobyte
 - Send tx relay flag with version
 - New 'reject' P2P message (BIP 0061, see
   https://gist.github.com/gavinandresen/7079034 for draft)

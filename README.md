@@ -1,7 +1,7 @@
 iCash Core staging tree 0.11
 ===============================
 
-http://www.icash.io
+http://www.icashpay.io
 
 Copyright (c) 2009-2015 Bitcoin Core Developers
 
@@ -18,7 +18,7 @@ are carried out collectively by the network. iCash Core is the name of open
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the iCash Core software, see http://www.icash.io/downloads.
+the iCash Core software, see http://www.icashpay.io/downloads.
 
 
 License

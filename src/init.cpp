@@ -5,7 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
+#include "icash-config.h"
 #endif
 
 #include "init.h"
@@ -21,6 +21,7 @@
 #include "ui_interface.h"
 #include "util.h"
 #include "activemasternode.h"
+#include "masternodeman.h"
 #include "spork.h"
 #ifdef ENABLE_WALLET
 #include "db.h"
@@ -147,6 +148,7 @@ void Shutdown()
     GenerateBitcoins(false, NULL, 0);
 #endif
     StopNode();
+    DumpMasternodes();
     UnregisterNodeSignals(GetNodeSignals());
     {
         LOCK(cs_main);
@@ -277,7 +279,7 @@ std::string HelpMessage(HelpMessageMode hmm)
     strUsage += "  -keepasskey=<key>      " + _("KeePassHttp key for AES encrypted communication with KeePass") + "\n";
     strUsage += "  -keepassid=<name>      " + _("KeePassHttp id for the established association") + "\n";
     strUsage += "  -keepassname=<name>    " + _("Name to construct url for KeePass entry that stores the wallet passphrase") + "\n";
-    strUsage += "  -keypool=<n>           " + _("Set key pool size to <n> (default: 100)") + "\n";
+    strUsage += "  -keypool=<n>           " + _("Set key pool size to <n> (default: 1000)") + "\n";
     strUsage += "  -paytxfee=<amt>        " + _("Fee per kB to add to transactions you send") + "\n";
     strUsage += "  -rescan                " + _("Rescan the block chain for missing wallet transactions") + " " + _("on startup") + "\n";
     strUsage += "  -salvagewallet         " + _("Attempt to recover private keys from a corrupt wallet.dat") + " " + _("on startup") + "\n";
@@ -705,7 +707,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     //ignore masternodes below protocol version
-    nMasternodeMinProtocol = GetArg("-masternodeminprotocol", 70051);
+    nMasternodeMinProtocol = GetArg("-masternodeminprotocol", MIN_PEER_PROTO_VERSION);
 
     int64_t nStart;
 
@@ -1150,6 +1152,21 @@ bool AppInit2(boost::thread_group& threadGroup)
     //CAddress addr;
     //ConnectNode(addr, strNode.c_str(), true);
 
+    uiInterface.InitMessage(_("Loading masternode cache..."));
+
+    CMasternodeDB mndb;
+    CMasternodeDB::ReadResult readResult = mndb.Read(mnodeman);
+    if (readResult == CMasternodeDB::FileError)
+        LogPrintf("Missing masternode cache file - mncache.dat, will try to recreate\n");
+    else if (readResult != CMasternodeDB::Ok)
+    {
+        LogPrintf("Error reading mncache.dat: ");
+        if(readResult == CMasternodeDB::IncorrectFormat)
+            LogPrintf("magic is ok but data has invalid format, will try to recreate\n");
+        else
+            LogPrintf("file format is unknown or invalid, please fix it manually\n");
+    }
+
     fMasterNode = GetBoolArg("-masternode", false);
     if(fMasterNode) {
         LogPrintf("IS DARKSEND MASTER NODE\n");
@@ -1226,8 +1243,8 @@ bool AppInit2(boost::thread_group& threadGroup)
        is convertable to another.
 
        For example:
-       1ICASH+1000 == (.1ICASH+100)*10
-       10ICASH+10000 == (1ICASH+1000)*10
+       1DRK+1000 == (.1DRK+100)*10
+       10DRK+10000 == (1DRK+1000)*10
     */
     darkSendDenominations.push_back( (100      * COIN)+100000 );
     darkSendDenominations.push_back( (10       * COIN)+10000 );

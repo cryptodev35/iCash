@@ -12,7 +12,7 @@
 #else
 #define UNUSED
 #endif
-static const char UNUSED *bitcoin_strings[] = {
+static const char UNUSED *icash_strings[] = {
 QT_TRANSLATE_NOOP("icash-core", ""
 "%s, you must set a rpcpassword in the configuration file:\n"
 "%s\n"
@@ -207,6 +207,7 @@ QT_TRANSLATE_NOOP("icash-core", "Discover own IP address (default: 1 when listen
 QT_TRANSLATE_NOOP("icash-core", "Do not load the wallet and disable wallet RPC calls"),
 QT_TRANSLATE_NOOP("icash-core", "Do you want to rebuild the block database now?"),
 QT_TRANSLATE_NOOP("icash-core", "Done loading"),
+QT_TRANSLATE_NOOP("icash-core", "Downgrading and trying again."),
 QT_TRANSLATE_NOOP("icash-core", "Enable the client to act as a masternode (0-1, default: 0)"),
 QT_TRANSLATE_NOOP("icash-core", "Entries are full."),
 QT_TRANSLATE_NOOP("icash-core", "Error connecting to masternode."),
@@ -275,6 +276,7 @@ QT_TRANSLATE_NOOP("icash-core", "List commands"),
 QT_TRANSLATE_NOOP("icash-core", "Listen for connections on <port> (default: 5555 or testnet: 15555)"),
 QT_TRANSLATE_NOOP("icash-core", "Loading addresses..."),
 QT_TRANSLATE_NOOP("icash-core", "Loading block index..."),
+QT_TRANSLATE_NOOP("icash-core", "Loading masternode cache..."),
 QT_TRANSLATE_NOOP("icash-core", "Loading wallet... (%3.2f %%)"),
 QT_TRANSLATE_NOOP("icash-core", "Loading wallet..."),
 QT_TRANSLATE_NOOP("icash-core", "Log transaction priority and fee per kB when mining blocks (default: 0)"),
@@ -380,7 +382,6 @@ QT_TRANSLATE_NOOP("icash-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("icash-core", "Warning"),
 QT_TRANSLATE_NOOP("icash-core", "Warning: Deprecated argument -debugnet ignored, use -debug=net"),
 QT_TRANSLATE_NOOP("icash-core", "Warning: This version is obsolete, upgrade required!"),
-QT_TRANSLATE_NOOP("icash-core", "Wrong state."),
 QT_TRANSLATE_NOOP("icash-core", "You need to rebuild the database using -reindex to change -txindex"),
 QT_TRANSLATE_NOOP("icash-core", "Zapping all transactions from wallet..."),
 QT_TRANSLATE_NOOP("icash-core", "on startup"),
