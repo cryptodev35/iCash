@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
-// Copyright (c) 2014-2015 The Darkcoin developers
+// Copyright (c) 2014-2015 The iCash developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,9 +16,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(DRK);
-    unitlist.append(mDRK);
-    unitlist.append(uDRK);
+    unitlist.append(ICASH);
+    unitlist.append(mICASH);
+    unitlist.append(uICASH);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -27,9 +27,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case DRK:
-    case mDRK:
-    case uDRK:
+    case ICASH:
+    case mICASH:
+    case uICASH:
     case duffs:
         return true;
     default:
@@ -43,9 +43,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case DRK: return QString("DRK");
-            case mDRK: return QString("mDRK");
-            case uDRK: return QString::fromUtf8("μDRK");
+            case ICASH: return QString("ICASH");
+            case mICASH: return QString("mICASH");
+            case uICASH: return QString::fromUtf8("μICASH");
             case duffs: return QString::fromUtf8("duffs");
             default: return QString("???");
         }
@@ -54,9 +54,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case DRK: return QString("tDRK");
-            case mDRK: return QString("mtDRK");
-            case uDRK: return QString::fromUtf8("μtDRK");
+            case ICASH: return QString("tICASH");
+            case mICASH: return QString("mtICASH");
+            case uICASH: return QString::fromUtf8("μtICASH");
             case duffs: return QString::fromUtf8("tduffs");
             default: return QString("???");
         }
@@ -69,10 +69,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case DRK: return QString("Darkcoins");
-            case mDRK: return QString("Milli-Darkcoins (1 / 1,000)");
-            case uDRK: return QString("Micro-Darkcoins (1 / 1,000,000)");
-            case duffs: return QString("Ten Nano-Darkcoins (1 / 100,000,000)");
+            case ICASH: return QString("iCashs");
+            case mICASH: return QString("Milli-iCashs (1 / 1,000)");
+            case uICASH: return QString("Micro-iCashs (1 / 1,000,000)");
+            case duffs: return QString("Ten Nano-iCashs (1 / 100,000,000)");
             default: return QString("???");
         }
     }
@@ -80,10 +80,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case DRK: return QString("Testdarkcoins");
-            case mDRK: return QString("Milli-Testdarkcoins (1 / 1,000)");
-            case uDRK: return QString("Micro-Testdarkcoins (1 / 1,000,000)");
-            case duffs: return QString("Ten Nano-Testdarkcoins (1 / 100,000,000)");
+            case ICASH: return QString("Testicashs");
+            case mICASH: return QString("Milli-Testicashs (1 / 1,000)");
+            case uICASH: return QString("Micro-Testicashs (1 / 1,000,000)");
+            case duffs: return QString("Ten Nano-Testicashs (1 / 100,000,000)");
             default: return QString("???");
         }
     }
@@ -93,9 +93,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case DRK:  return 100000000;
-    case mDRK: return 100000;
-    case uDRK: return 100;
+    case ICASH:  return 100000000;
+    case mICASH: return 100000;
+    case uICASH: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -105,9 +105,9 @@ qint64 BitcoinUnits::maxAmount(int unit)
 {
     switch(unit)
     {
-    case DRK:  return Q_INT64_C(21000000);
-    case mDRK: return Q_INT64_C(21000000000);
-    case uDRK: return Q_INT64_C(21000000000000);
+    case ICASH:  return Q_INT64_C(21000000);
+    case mICASH: return Q_INT64_C(21000000000);
+    case uICASH: return Q_INT64_C(21000000000000);
     case duffs: return Q_INT64_C(2100000000000000);
     default:   return 0;
     }
@@ -117,9 +117,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case DRK: return 8; // 21,000,000 (# digits, without commas)
-    case mDRK: return 11; // 21,000,000,000
-    case uDRK: return 14; // 21,000,000,000,000
+    case ICASH: return 8; // 21,000,000 (# digits, without commas)
+    case mICASH: return 11; // 21,000,000,000
+    case uICASH: return 14; // 21,000,000,000,000
     case duffs: return 16; // 2,100,000,000,000,000
     default: return 0;
     }
@@ -129,9 +129,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case DRK: return 8;
-    case mDRK: return 5;
-    case uDRK: return 2;
+    case ICASH: return 8;
+    case mICASH: return 5;
+    case uICASH: return 2;
     case duffs: return 0;
     default: return 0;
     }

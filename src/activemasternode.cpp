@@ -5,7 +5,7 @@
 #include <boost/lexical_cast.hpp>
 
 //
-// Bootup the masternode, look for a 1000DRK input and register on the network
+// Bootup the masternode, look for a 1000ICASH input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -42,8 +42,8 @@ void CActiveMasternode::ManageStatus()
         LogPrintf("CActiveMasternode::ManageStatus() - Checking inbound connection to '%s'\n", service.ToString().c_str());
 
         if(Params().NetworkID() == CChainParams::MAIN){
-            if(service.GetPort() != 9999) {
-                notCapableReason = "Invalid port: " + boost::lexical_cast<string>(service.GetPort()) + " -only 9999 is supported on mainnet.";
+            if(service.GetPort() != 5555) {
+                notCapableReason = "Invalid port: " + boost::lexical_cast<string>(service.GetPort()) + " -only 5555 is supported on mainnet.";
                 status = MASTERNODE_NOT_CAPABLE;
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason.c_str());
                 return;

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=iCash
+Comment=iCash P2P Cryptocurrency
+Comment[fr]=iCash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=iCash, eşten eşe kriptografik sanal para birimi
+Exec=icash-qt %u
+Terminal=false
+Type=Application
+Icon=icash128
+MimeType=x-scheme-handler/icash;
+Categories=Office;Finance;

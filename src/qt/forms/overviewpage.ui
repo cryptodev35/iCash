@@ -67,7 +67,7 @@
             <item>
              <widget class="QLabel" name="labelWalletStatus">
               <property name="toolTip">
-               <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Darkcoin network after a connection is established, but this process has not completed yet.</string>
+               <string>The displayed information may be out of date. Your wallet automatically synchronizes with the iCash network after a connection is established, but this process has not completed yet.</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QLabel { color: red; }</string>
@@ -282,7 +282,7 @@
            <rect>
             <x>10</x>
             <y>40</y>
-            <width>431</width>
+            <width>451</width>
             <height>161</height>
            </rect>
           </property>
@@ -346,7 +346,7 @@
               </font>
              </property>
              <property name="text">
-              <string>0 DRK</string>
+              <string>0 ICASH</string>
              </property>
             </widget>
            </item>
@@ -360,7 +360,7 @@
            <item row="3" column="1">
             <widget class="QLabel" name="labelAmountRounds">
              <property name="text">
-              <string>0 DRK / 0 Rounds</string>
+              <string>0 ICASH / 0 Rounds</string>
              </property>
             </widget>
            </item>
@@ -876,7 +876,7 @@
            <rect>
             <x>10</x>
             <y>220</y>
-            <width>288</width>
+            <width>451</width>
             <height>61</height>
            </rect>
           </property>
@@ -983,7 +983,7 @@
             <item>
              <widget class="QLabel" name="labelTransactionsStatus">
               <property name="toolTip">
-               <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Darkcoin network after a connection is established, but this process has not completed yet.</string>
+               <string>The displayed information may be out of date. Your wallet automatically synchronizes with the iCash network after a connection is established, but this process has not completed yet.</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QLabel { color: red; }</string>

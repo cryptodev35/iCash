@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2014-2015 The Darkcoin developers
+// Copyright (c) 2014-2015 The iCash developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -33,7 +33,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "Darkcoin cannot be compiled without assertions."
+# error "iCash cannot be compiled without assertions."
 #endif
 
 //
@@ -82,7 +82,7 @@ void EraseOrphansFor(NodeId peer);
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "DarkCoin Signed Message:\n";
+const string strMessageMagic = "iCash Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1432,25 +1432,26 @@ int64_t GetBlockValue(int nBits, int nHeight, int64_t nFees)
     double dDiff = (double)0x0000ffff / (double)(nBits & 0x00ffffff);
 
     /* fixed bug caused diff to not be correctly calculated */
-    if(nHeight > 4500 || TestNet()) dDiff = ConvertBitsToDouble(nBits);
+    if(nHeight > 3 || TestNet()) dDiff = ConvertBitsToDouble(nBits);
 
     int64_t nSubsidy = 0;
-    if(nHeight >= 5465) {
-        if((nHeight >= 17000 && dDiff > 75) || nHeight >= 24000) { // GPU/ASIC difficulty calc
-            // 2222222/(((x+2600)/9)^2)
-            nSubsidy = (2222222.0 / (pow((dDiff+2600.0)/9.0,2.0)));
-            if (nSubsidy > 25) nSubsidy = 25;
-            if (nSubsidy < 5) nSubsidy = 5;
-        } else { // CPU mining calc
-            nSubsidy = (11111.0 / (pow((dDiff+51.0)/6.0,2.0)));
-            if (nSubsidy > 500) nSubsidy = 500;
-            if (nSubsidy < 25) nSubsidy = 25;
-        }
-    } else {
-        nSubsidy = (1111.0 / (pow((dDiff+1.0),2.0)));
-        if (nSubsidy > 500) nSubsidy = 500;
-        if (nSubsidy < 1) nSubsidy = 1;
-    }
+   // if(nHeight >= 5465) {
+   //     if((nHeight >= 17000 && dDiff > 75) || nHeight >= 24000) 
+   { // GPU/ASIC difficulty calc
+            // 222222222/(((x+2600)/9)^2)
+            nSubsidy = (222222222.0 / (pow((dDiff+2600.0)/9.0,2.0)));
+            if (nSubsidy > 2662) nSubsidy = 2662;
+            if (nSubsidy < 1) nSubsidy = 1;
+        } //else { // CPU mining calc
+         //   nSubsidy = (11111.0 / (pow((dDiff+51.0)/6.0,2.0)));
+        //    if (nSubsidy > 500) nSubsidy = 500;
+           // if (nSubsidy < 25) nSubsidy = 25;
+       // }
+   // } else {
+//        nSubsidy = (1111.0 / (pow((dDiff+1.0),2.0)));
+//        if (nSubsidy > 500) nSubsidy = 500;
+//        if (nSubsidy < 1) nSubsidy = 1;
+//    }
 
     // LogPrintf("height %u diff %4.2f reward %i \n", nHeight, dDiff, nSubsidy);
     nSubsidy *= COIN;
@@ -1480,25 +1481,25 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
         if(nHeight > 46000+((576*1)*7)) ret += blockValue / 20; //60% - 2014-10-14
     }
 
-    if(nHeight > 158000)               ret += blockValue / 20; // 158000 - 25.0% - 2014-10-24
-    if(nHeight > 158000+((576*30)* 1)) ret += blockValue / 20; // 175280 - 30.0% - 2014-11-25
-    if(nHeight > 158000+((576*30)* 2)) ret += blockValue / 20; // 192560 - 35.0% - 2014-12-26
-    if(nHeight > 158000+((576*30)* 3)) ret += blockValue / 40; // 209840 - 37.5% - 2015-01-26
-    if(nHeight > 158000+((576*30)* 4)) ret += blockValue / 40; // 227120 - 40.0% - 2015-02-27
-    if(nHeight > 158000+((576*30)* 5)) ret += blockValue / 40; // 244400 - 42.5% - 2015-03-30
-    if(nHeight > 158000+((576*30)* 6)) ret += blockValue / 40; // 261680 - 45.0% - 2015-05-01
-    if(nHeight > 158000+((576*30)* 7)) ret += blockValue / 40; // 278960 - 47.5% - 2015-06-01
-    if(nHeight > 158000+((576*30)* 9)) ret += blockValue / 40; // 313520 - 50.0% - 2015-08-03
-    if(nHeight > 158000+((576*30)*11)) ret += blockValue / 40; // 348080 - 52.5% - 2015-10-05
-    if(nHeight > 158000+((576*30)*13)) ret += blockValue / 40; // 382640 - 55.0% - 2015-12-07
-    if(nHeight > 158000+((576*30)*15)) ret += blockValue / 40; // 417200 - 57.5% - 2016-02-08
-    if(nHeight > 158000+((576*30)*17)) ret += blockValue / 40; // 451760 - 60.0% - 2016-04-11
+    if(nHeight > 17280)               ret += blockValue / 20; // 158000 - 25.0% - 2014-10-24
+    if(nHeight > 17280+((576*30)* 1)) ret += blockValue / 20; // 175280 - 30.0% - 2014-11-25
+    if(nHeight > 17280+((576*30)* 2)) ret += blockValue / 20; // 192560 - 35.0% - 2014-12-26
+    if(nHeight > 17280+((576*30)* 3)) ret += blockValue / 40; // 209840 - 37.5% - 2015-01-26
+    if(nHeight > 17280+((576*30)* 4)) ret += blockValue / 40; // 227120 - 40.0% - 2015-02-27
+    if(nHeight > 17280+((576*30)* 5)) ret += blockValue / 40; // 244400 - 42.5% - 2015-03-30
+    if(nHeight > 17280+((576*30)* 6)) ret += blockValue / 40; // 261680 - 45.0% - 2015-05-01
+    if(nHeight > 17280+((576*30)* 7)) ret += blockValue / 40; // 278960 - 47.5% - 2015-06-01
+    if(nHeight > 17280+((576*30)* 9)) ret += blockValue / 40; // 313520 - 50.0% - 2015-08-03
+    if(nHeight > 17280+((576*30)*11)) ret += blockValue / 40; // 348080 - 52.5% - 2015-10-05
+    if(nHeight > 17280+((576*30)*13)) ret += blockValue / 40; // 382640 - 55.0% - 2015-12-07
+    if(nHeight > 17280+((576*30)*15)) ret += blockValue / 40; // 417200 - 57.5% - 2016-02-08
+    if(nHeight > 17280+((576*30)*17)) ret += blockValue / 40; // 451760 - 60.0% - 2016-04-11
 
     return ret;
 }
 
-static const int64_t nTargetTimespan = 24 * 60 * 60; // Darkcoin: 1 day
-static const int64_t nTargetSpacing = 2.5 * 60; // Darkcoin: 2.5 minutes
+static const int64_t nTargetTimespan = 24 * 60 * 60; // iCash: 1 day
+static const int64_t nTargetSpacing = 2.5 * 60; // iCash: 2.5 minutes
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing; // 576 blocks
 
 //
@@ -1584,7 +1585,7 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
 }
 
 unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockHeader *pblock) {
-    /* current difficulty formula, darkcoin - DarkGravity v3, written by Evan Duffield - evan@darkcoin.io */
+    /* current difficulty formula, icash - DarkGravity v3, written by Evan Duffield - evan@icash.io */
     const CBlockIndex *BlockLastSolved = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
     const CBlockHeader *BlockCreating = pblock;
@@ -1646,8 +1647,8 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         unsigned int retarget = DIFF_DGW;
 
         if (!TestNet()) {
-            if (pindexLast->nHeight + 1 >= 34140) retarget = DIFF_DGW;
-            else if (pindexLast->nHeight + 1 >= 15200) retarget = DIFF_KGW;
+            if (pindexLast->nHeight + 1 >= 2) retarget = DIFF_DGW;
+            else if (pindexLast->nHeight + 1 >= 1) retarget = DIFF_KGW;
             else retarget = DIFF_BTC;
         } else {
             if (pindexLast->nHeight + 1 >= 2000) retarget = DIFF_DGW;
@@ -1685,7 +1686,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
                 return pindexLast->nBits;
             }
 
-            // Darkcoin: This fixes an issue where a 51% attack can change difficulty at will.
+            // iCash: This fixes an issue where a 51% attack can change difficulty at will.
             // Go back the full period unless it's the first retarget after genesis.
             // Code courtesy of Art Forz.
             int blockstogoback = nInterval-1;
@@ -2162,7 +2163,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("darkcoin-scriptch");
+    RenameThread("icash-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2470,6 +2471,19 @@ bool static ConnectTip(CValidationState &state, CBlockIndex *pindexNew) {
     BOOST_FOREACH(const CTransaction &tx, block.vtx) {
         SyncWithWallets(tx.GetHash(), tx, &block);
     }
+    return true;
+}
+
+bool DisconnectBlocksAndReprocess(int blocks)
+{
+    LOCK(cs_main);
+
+    CValidationState state;
+
+    LogPrintf("DisconnectBlocksAndReprocess: Got command to replay %d blocks", blocks);
+    for(int i = 0; i <= blocks; i++)
+        DisconnectTip(state);
+
     return true;
 }
 
@@ -2829,26 +2843,22 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     // ----------- instantX transaction scanning -----------
 
     if(IsSporkActive(SPORK_3_INSTANTX_BLOCK_FILTERING)){
-        if(!fLargeWorkForkFound && !fLargeWorkInvalidChainFound){
-            BOOST_FOREACH(const CTransaction& tx, block.vtx){
-                if (!tx.IsCoinBase()){
-                    //only reject blocks when it's based on complete consensus
-                    BOOST_FOREACH(const CTxIn& in, tx.vin){
-                        if(mapLockedInputs.count(in.prevout)){
-                            if(mapLockedInputs[in.prevout] != tx.GetHash()){
-                                LogPrintf("CheckBlock() : found conflicting transaction with transaction lock %s %s\n", mapLockedInputs[in.prevout].ToString().c_str(), tx.GetHash().ToString().c_str());
-                                return state.DoS(0, error("CheckBlock() : found conflicting transaction with transaction lock"),
-                                                 REJECT_INVALID, "conflicting-tx-ix");
-                            }
+        BOOST_FOREACH(const CTransaction& tx, block.vtx){
+            if (!tx.IsCoinBase()){
+                //only reject blocks when it's based on complete consensus
+                BOOST_FOREACH(const CTxIn& in, tx.vin){
+                    if(mapLockedInputs.count(in.prevout)){
+                        if(mapLockedInputs[in.prevout] != tx.GetHash()){
+                            LogPrintf("CheckBlock() : found conflicting transaction with transaction lock %s %s\n", mapLockedInputs[in.prevout].ToString().c_str(), tx.GetHash().ToString().c_str());
+                            return state.DoS(0, error("CheckBlock() : found conflicting transaction with transaction lock"),
+                                             REJECT_INVALID, "conflicting-tx-ix");
                         }
                     }
                 }
             }
-        } else {
-            LogPrintf("CheckBlock() : fork detected, skipping transaction locking checks\n");
         }
     } else {
-        if(fDebug) LogPrintf("CheckBlock() : InstantX block filtering is off\n");
+        LogPrintf("CheckBlock() : skipping transaction locking checks\n");
     }
 
 
@@ -2867,65 +2877,61 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         if(fDebug) LogPrintf("CheckBlock() : Masternode payment enforcement is off\n");
     }
 
-    if(!fLargeWorkForkFound && !fLargeWorkInvalidChainFound){
-        if(MasternodePayments)
-        {
-            LOCK2(cs_main, mempool.cs);
+    if(MasternodePayments)
+    {
+        LOCK2(cs_main, mempool.cs);
 
-            CBlockIndex *pindex = chainActive.Tip();
-            if(pindex != NULL){
-                if(pindex->GetBlockHash() == block.hashPrevBlock){
-                    int64_t masternodePaymentAmount = GetMasternodePayment(pindex->nHeight+1, block.vtx[0].GetValueOut());
-                    bool fIsInitialDownload = IsInitialBlockDownload();
+        CBlockIndex *pindex = chainActive.Tip();
+        if(pindex != NULL){
+            if(pindex->GetBlockHash() == block.hashPrevBlock){
+                int64_t masternodePaymentAmount = GetMasternodePayment(pindex->nHeight+1, block.vtx[0].GetValueOut());
+                bool fIsInitialDownload = IsInitialBlockDownload();
 
-                    // If we don't already have its previous block, skip masternode payment step
-                    if (!fIsInitialDownload && pindex != NULL)
-                    {
-                        bool foundPaymentAmount = false;
-                        bool foundPayee = false;
-                        bool foundPaymentAndPayee = false;
+                // If we don't already have its previous block, skip masternode payment step
+                if (!fIsInitialDownload && pindex != NULL)
+                {
+                    bool foundPaymentAmount = false;
+                    bool foundPayee = false;
+                    bool foundPaymentAndPayee = false;
 
-                        CScript payee;
-                        if(!masternodePayments.GetBlockPayee(chainActive.Tip()->nHeight+1, payee) || payee == CScript()){
-                            foundPayee = true; //doesn't require a specific payee
+                    CScript payee;
+                    if(!masternodePayments.GetBlockPayee(chainActive.Tip()->nHeight+1, payee) || payee == CScript()){
+                        foundPayee = true; //doesn't require a specific payee
+                        foundPaymentAmount = true;
+                        foundPaymentAndPayee = true;
+                        LogPrintf("CheckBlock() : Using non-specific masternode payments %d\n", chainActive.Tip()->nHeight+1);
+                    }
+
+                    for (unsigned int i = 0; i < block.vtx[0].vout.size(); i++) {
+                        if(block.vtx[0].vout[i].nValue == masternodePaymentAmount )
                             foundPaymentAmount = true;
+                        if(block.vtx[0].vout[i].scriptPubKey == payee )
+                            foundPayee = true;
+                        if(block.vtx[0].vout[i].nValue == masternodePaymentAmount && block.vtx[0].vout[i].scriptPubKey == payee)
                             foundPaymentAndPayee = true;
-                            LogPrintf("CheckBlock() : Using non-specific masternode payments %d\n", chainActive.Tip()->nHeight+1);
-                        }
+                    }
 
-                        for (unsigned int i = 0; i < block.vtx[0].vout.size(); i++) {
-                            if(block.vtx[0].vout[i].nValue == masternodePaymentAmount )
-                                foundPaymentAmount = true;
-                            if(block.vtx[0].vout[i].scriptPubKey == payee )
-                                foundPayee = true;
-                            if(block.vtx[0].vout[i].nValue == masternodePaymentAmount && block.vtx[0].vout[i].scriptPubKey == payee)
-                                foundPaymentAndPayee = true;
-                        }
+                    if(!foundPaymentAndPayee) {
+                        CTxDestination address1;
+                        ExtractDestination(payee, address1);
+                        CBitcoinAddress address2(address1);
 
-                        if(!foundPaymentAndPayee) {
-                            CTxDestination address1;
-                            ExtractDestination(payee, address1);
-                            CBitcoinAddress address2(address1);
-
-                            LogPrintf("CheckBlock() : Couldn't find masternode payment(%d|%d) or payee(%d|%s) nHeight %d. \n", foundPaymentAmount, masternodePaymentAmount, foundPayee, address2.ToString().c_str(), chainActive.Tip()->nHeight+1);
-                            if(!RegTest()) return state.DoS(100, error("CheckBlock() : Couldn't find masternode payment or payee"));
-                        } else {
-                            LogPrintf("CheckBlock() : Found masternode payment %d\n", chainActive.Tip()->nHeight+1);
-                        }
+                        LogPrintf("CheckBlock() : Couldn't find masternode payment(%d|%d) or payee(%d|%s) nHeight %d. \n", foundPaymentAmount, masternodePaymentAmount, foundPayee, address2.ToString().c_str(), chainActive.Tip()->nHeight+1);
+                        if(!RegTest()) return state.DoS(100, error("CheckBlock() : Couldn't find masternode payment or payee"));
                     } else {
-                        LogPrintf("CheckBlock() : Is initial download, skipping masternode payment check %d\n", chainActive.Tip()->nHeight+1);
+                        LogPrintf("CheckBlock() : Found masternode payment %d\n", chainActive.Tip()->nHeight+1);
                     }
                 } else {
-                    LogPrintf("CheckBlock() : Skipping masternode payment check - nHeight %d Hash %s\n", chainActive.Tip()->nHeight+1, block.GetHash().ToString().c_str());
+                    LogPrintf("CheckBlock() : Is initial download, skipping masternode payment check %d\n", chainActive.Tip()->nHeight+1);
                 }
             } else {
-                LogPrintf("CheckBlock() : pindex is null, skipping masternode payment check\n");
+                LogPrintf("CheckBlock() : Skipping masternode payment check - nHeight %d Hash %s\n", chainActive.Tip()->nHeight+1, block.GetHash().ToString().c_str());
             }
         } else {
-            LogPrintf("CheckBlock() : skipping masternode payment checks\n");
+            LogPrintf("CheckBlock() : pindex is null, skipping masternode payment check\n");
         }
-    }   else {
-        LogPrintf("CheckBlock() : fork detected, skipping masternode payment checks\n");
+    } else {
+        LogPrintf("CheckBlock() : skipping masternode payment checks\n");
     }
 
 
@@ -3187,12 +3193,6 @@ bool ProcessBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDiskBl
 
             // Ask this guy to fill in what we're missing
             PushGetBlocks(pfrom, chainActive.Tip(), GetOrphanRoot(hash));
-
-            // Move backwards to tigger reprocessing both chains
-            if(fLargeWorkForkFound || fLargeWorkInvalidChainFound || IsSporkActive(SPORK_4_RECONVERGE)){
-                CValidationState state;
-                DisconnectTip(state);
-            }
         }
         return true;
     }
@@ -4046,8 +4046,9 @@ void static ProcessGetData(CNode* pfrom)
                 if (!pushed && inv.type == MSG_MASTERNODE_WINNER) {
                     if(mapSeenMasternodeVotes.count(inv.hash)){
                         CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+                        int a = 0;
                         ss.reserve(1000);
-                        ss << mapSeenMasternodeVotes[inv.hash];
+                        ss << mapSeenMasternodeVotes[inv.hash] << a;
                         pfrom->PushMessage("mnw", ss);
                         pushed = true;
                     }

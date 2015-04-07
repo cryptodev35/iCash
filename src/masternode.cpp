@@ -106,7 +106,7 @@ void ProcessMessageMasternode(CNode* pfrom, std::string& strCommand, CDataStream
         }
 
         if(Params().NetworkID() == CChainParams::MAIN){
-            if(addr.GetPort() != 9999) return;
+            if(addr.GetPort() != 5555) return;
         }
 
         //search existing masternode list, this is where we update existing masternodes with new dsee broadcasts
@@ -331,7 +331,8 @@ void ProcessMessageMasternode(CNode* pfrom, std::string& strCommand, CDataStream
     else if (strCommand == "mnw") { //Masternode Payments Declare Winner
         //this is required in litemode
         CMasternodePaymentWinner winner;
-        vRecv >> winner;
+        int a = 0;
+        vRecv >> winner >> a;
 
         if(chainActive.Tip() == NULL) return;
 
@@ -512,6 +513,11 @@ int GetMasternodeRank(CTxIn& vin, int64_t nBlockHeight, int minProtocol)
 //Get the last hash that matches the modulus given. Processed in reverse order
 bool GetBlockHash(uint256& hash, int nBlockHeight)
 {
+    if (chainActive.Tip() == NULL) return false;
+
+    if(nBlockHeight == 0)
+        nBlockHeight = chainActive.Tip()->nHeight;
+
     if(mapCacheBlockHashes.count(nBlockHeight)){
         hash = mapCacheBlockHashes[nBlockHeight];
         return true;
@@ -520,7 +526,6 @@ bool GetBlockHash(uint256& hash, int nBlockHeight)
     const CBlockIndex *BlockLastSolved = chainActive.Tip();
     const CBlockIndex *BlockReading = chainActive.Tip();
 
-    if (chainActive.Tip() == NULL) return false;
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || chainActive.Tip()->nHeight+1 < nBlockHeight) return false;
 
     int nBlocksAgo = 0;
@@ -600,7 +605,7 @@ void CMasterNode::Check()
 bool CMasternodePayments::CheckSignature(CMasternodePaymentWinner& winner)
 {
     //note: need to investigate why this is failing
-    std::string strMessage = winner.vin.ToString().c_str() + boost::lexical_cast<std::string>(winner.nBlockHeight);
+    std::string strMessage = winner.vin.ToString().c_str() + boost::lexical_cast<std::string>(winner.nBlockHeight) + winner.payee.ToString();
     std::string strPubKey = (Params().NetworkID() == CChainParams::MAIN) ? strMainPubKey : strTestPubKey;
     CPubKey pubkey(ParseHex(strPubKey));
 
@@ -614,7 +619,7 @@ bool CMasternodePayments::CheckSignature(CMasternodePaymentWinner& winner)
 
 bool CMasternodePayments::Sign(CMasternodePaymentWinner& winner)
 {
-    std::string strMessage = winner.vin.ToString().c_str() + boost::lexical_cast<std::string>(winner.nBlockHeight);
+    std::string strMessage = winner.vin.ToString().c_str() + boost::lexical_cast<std::string>(winner.nBlockHeight) + winner.payee.ToString();
 
     CKey key2;
     CPubKey pubkey2;
@@ -649,7 +654,7 @@ uint64_t CMasternodePayments::CalculateScore(uint256 blockHash, CTxIn& vin)
     //printf(" -- CMasternodePayments CalculateScore() n2 = %d \n", n2.Get64());
     //printf(" -- CMasternodePayments CalculateScore() n3 = %d \n", n3.Get64());
     //printf(" -- CMasternodePayments CalculateScore() n4 = %d \n", n4.Get64());
- 
+
     return n4.Get64();
 }
 
@@ -705,7 +710,7 @@ bool CMasternodePayments::AddWinningMasternode(CMasternodePaymentWinner& winnerI
     if(!foundBlock){
         vWinning.push_back(winnerIn);
         mapSeenMasternodeVotes.insert(make_pair(winnerIn.GetHash(), winnerIn));
-        
+
         return true;
     }
 
@@ -795,9 +800,10 @@ void CMasternodePayments::Relay(CMasternodePaymentWinner& winner)
 
 void CMasternodePayments::Sync(CNode* node)
 {
+    int a = 0;
     BOOST_FOREACH(CMasternodePaymentWinner& winner, vWinning)
         if(winner.nBlockHeight >= chainActive.Tip()->nHeight-10 && winner.nBlockHeight <= chainActive.Tip()->nHeight + 20)
-            node->PushMessage("mnw", winner);
+            node->PushMessage("mnw", winner, a);
 }
 
 
