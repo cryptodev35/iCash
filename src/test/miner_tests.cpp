@@ -198,7 +198,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
 
     // subsidy changing
     int nHeight = chainActive.Height();
-    chainActive.Tip()->nHeight = 209999;
+    chainActive.Tip()->nHeight = 205555;
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey));
     delete pblocktemplate;
     chainActive.Tip()->nHeight = 210000;

@@ -1,6 +1,6 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build dashd(headless client) for OSX.
+This guide will show you how to build icashd(headless client) for OSX.
 
 Notes
 -----
@@ -73,19 +73,19 @@ These rest of these commands are run inside brew interactive mode:
 /private/tmp/berkeley-db4-UGpd0O $ exit
 ```
 
-After exiting, you'll get a warning that the install is keg-only, which means it wasn't symlinked to `/usr/local`.  You don't need it to link it to build dash, but if you want to, here's how:
+After exiting, you'll get a warning that the install is keg-only, which means it wasn't symlinked to `/usr/local`.  You don't need it to link it to build icash, but if you want to, here's how:
 
     $ brew --force link berkeley-db4
 
 
-### Building `dashd`
+### Building `icashd`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/dashpay/dash.git
-        cd dash
+        git clone https://github.com/icashpay/icash.git
+        cd icash
 
-2.  Build dashd:
+2.  Build icashd:
 
         ./autogen.sh
         ./configure
@@ -97,11 +97,11 @@ After exiting, you'll get a warning that the install is keg-only, which means it
 
 Creating a release build
 ------------------------
-You can ignore this section if you are building `dashd` for your own use.
+You can ignore this section if you are building `icashd` for your own use.
 
-dashd/dash-cli binaries are not included in the Dash-Qt.app bundle.
+icashd/icash-cli binaries are not included in the iCash-Qt.app bundle.
 
-If you are building `dashd` or `Dash-Qt` for others, your build machine should be set up
+If you are building `icashd` or `iCash-Qt` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -110,29 +110,29 @@ All dependencies should be compiled with these flags:
  -arch x86_64
  -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk
 
-Once dependencies are compiled, see release-process.md for how the Dash-Qt.app
+Once dependencies are compiled, see release-process.md for how the iCash-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
 
-It's now available at `./dashd`, provided that you are still in the `src`
+It's now available at `./icashd`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./dashd` to get the filename where it should be put, or just try these
+Run `./icashd` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=dashrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Dash/dash.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/Dash/dash.conf"
+    echo -e "rpcuser=icashrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/iCash/icash.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/iCash/icash.conf"
 
 When next you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
 you can monitor its process by looking at the debug.log file, like this:
 
-    tail -f $HOME/Library/Application\ Support/Dash/debug.log
+    tail -f $HOME/Library/Application\ Support/iCash/debug.log
 
 Other commands:
 
-    ./dashd -daemon # to start the dash daemon.
-    ./dash-cli --help  # for a list of command-line options.
-    ./dash-cli help    # When the daemon is running, to get a list of RPC commands
+    ./icashd -daemon # to start the icash daemon.
+    ./icash-cli --help  # for a list of command-line options.
+    ./icash-cli help    # When the daemon is running, to get a list of RPC commands

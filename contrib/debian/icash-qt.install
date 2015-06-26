@@ -1,0 +1,6 @@
+usr/local/bin/icash-qt usr/bin
+share/pixmaps/icash32.xpm usr/share/pixmaps
+share/pixmaps/icash16.xpm usr/share/pixmaps
+share/pixmaps/icash128.png usr/share/pixmaps
+debian/icash-qt.desktop usr/share/applications
+debian/icash-qt.protocol usr/share/kde4/services/

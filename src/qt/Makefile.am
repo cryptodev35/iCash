@@ -5,41 +5,41 @@ AM_CPPFLAGS += -I$(top_srcdir)/src \
   -I$(top_builddir)/src/qt/forms \
   $(PROTOBUF_CFLAGS) \
   $(QR_CFLAGS)
-bin_PROGRAMS = dash-qt
-noinst_LIBRARIES = libdashqt.a
+bin_PROGRAMS = icash-qt
+noinst_LIBRARIES = libicashqt.a
 SUBDIRS = . $(BUILD_TEST_QT)
 DIST_SUBDIRS = . test
 
-# dash qt core #
+# icash qt core #
 QT_TS = \
-  locale/dash_bar.ts \
-  locale/dash_bg.ts \
-  locale/dash_ca.ts \
-  locale/dash_cmn.ts \
-  locale/dash_cs.ts \
-  locale/dash_da.ts \
-  locale/dash_de.ts \
-  locale/dash_el.ts \
-  locale/dash_en.ts \
-  locale/dash_eo.ts \
-  locale/dash_es.ts \
-  locale/dash_fi.ts \
-  locale/dash_fr.ts \
-  locale/dash_hu_HU.ts \
-  locale/dash_it.ts \
-  locale/dash_lv_LV.ts \
-  locale/dash_nb.ts \
-  locale/dash_nl.ts \
-  locale/dash_pl.ts \
-  locale/dash_pt.ts \
-  locale/dash_pt_BR.ts \
-  locale/dash_ru.ts \
-  locale/dash_sk.ts \
-  locale/dash_sv.ts \
-  locale/dash_tr.ts \
-  locale/dash_vi.ts \
-  locale/dash_zh_CN.ts \
-  locale/dash_zh_HK.ts
+  locale/icash_bar.ts \
+  locale/icash_bg.ts \
+  locale/icash_ca.ts \
+  locale/icash_cmn.ts \
+  locale/icash_cs.ts \
+  locale/icash_da.ts \
+  locale/icash_de.ts \
+  locale/icash_el.ts \
+  locale/icash_en.ts \
+  locale/icash_eo.ts \
+  locale/icash_es.ts \
+  locale/icash_fi.ts \
+  locale/icash_fr.ts \
+  locale/icash_hu_HU.ts \
+  locale/icash_it.ts \
+  locale/icash_lv_LV.ts \
+  locale/icash_nb.ts \
+  locale/icash_nl.ts \
+  locale/icash_pl.ts \
+  locale/icash_pt.ts \
+  locale/icash_pt_BR.ts \
+  locale/icash_ru.ts \
+  locale/icash_sk.ts \
+  locale/icash_sv.ts \
+  locale/icash_tr.ts \
+  locale/icash_vi.ts \
+  locale/icash_zh_CN.ts \
+  locale/icash_zh_HK.ts
 
 QT_FORMS_UI = \
   forms/aboutdialog.ui \
@@ -112,13 +112,13 @@ BITCOIN_MM = \
   macnotificationhandler.mm
 
 QT_MOC = \
-  dash.moc \
+  icash.moc \
   intro.moc \
   overviewpage.moc \
   rpcconsole.moc
 
-QT_QRC_CPP = qrc_dash.cpp
-QT_QRC = dash.qrc
+QT_QRC_CPP = qrc_icash.cpp
+QT_QRC = icash.qrc
 
 PROTOBUF_CC = paymentrequest.pb.cc
 PROTOBUF_H = paymentrequest.pb.h
@@ -227,7 +227,7 @@ RES_ICONS = \
 
 
 BITCOIN_QT_CPP = \
-  dash.cpp \
+  icash.cpp \
   bitcoinaddressvalidator.cpp \
   bitcoinamountfield.cpp \
   bitcoingui.cpp \
@@ -284,7 +284,7 @@ RES_IMAGES = \
   res/images/about.png \
   res/images/splash.png \
   res/images/splash_testnet.png \
-  res/images/dash_logo_horizontal.png \
+  res/images/icash_logo_horizontal.png \
   res/images/drkblue_downArrow.png \
   res/images/drkblue_downArrow_small.png \
   res/images/drkblue_upArrow_small.png \
@@ -299,40 +299,40 @@ RES_CSS = \
   
 RES_MOVIES = $(wildcard res/movies/spinner-*.png)
 
-DASH_RC = res/dash-qt-res.rc
+ICASH_RC = res/icash-qt-res.rc
 
-libdashqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
+libicashqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms $(QT_DBUS_INCLUDES)
-libdashqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+libicashqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(RES_CSS)
 
-nodist_libdashqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_libicashqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP)
 
-BUILT_SOURCES = $(nodist_libdashqt_a_SOURCES)
+BUILT_SOURCES = $(nodist_libicashqt_a_SOURCES)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# dash-qt binary #
-dash_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
+# icash-qt binary #
+icash_qt_CPPFLAGS = $(AM_CPPFLAGS) $(QT_INCLUDES) \
   -I$(top_srcdir)/src/qt/forms
-dash_qt_SOURCES = dash.cpp
+icash_qt_SOURCES = icash.cpp
 if TARGET_DARWIN
-  dash_qt_SOURCES += $(BITCOIN_MM)
+  icash_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  dash_qt_SOURCES += $(DASH_RC)
+  icash_qt_SOURCES += $(ICASH_RC)
 endif
-dash_qt_LDADD = libdashqt.a $(LIBBITCOIN_SERVER)
+icash_qt_LDADD = libicashqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-dash_qt_LDADD += $(LIBBITCOIN_WALLET)
+icash_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
-dash_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
+icash_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
-dash_qt_LDFLAGS = $(QT_LDFLAGS)
+icash_qt_LDFLAGS = $(QT_LDFLAGS)
 
 # forms/foo.h -> forms/ui_foo.h
 QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
@@ -343,15 +343,15 @@ QT_QM=$(QT_TS:.ts=.qm)
 .PHONY: FORCE
 .SECONDARY: $(QT_QM)
 
-dashstrings.cpp: FORCE
-	$(MAKE) -C $(top_srcdir)/src qt/dashstrings.cpp
+icashstrings.cpp: FORCE
+	$(MAKE) -C $(top_srcdir)/src qt/icashstrings.cpp
 
-translate: dashstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: icashstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/dash_en.ts
+	@QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts locale/icash_en.ts
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_QM) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(RES_CSS) $(PROTOBUF_H)
-	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name dash -o $(abs_builddir)/$@ $< || \
+	@cd $(abs_srcdir); test -f $(RCC) && QT_SELECT=$(QT_SELECT) $(RCC) -name icash -o $(abs_builddir)/$@ $< || \
 	  echo error: could not build $@
 	$(SED) -e '/^\*\*.*Created:/d' $@ > $@.n && mv $@{.n,}
 	$(SED) -e '/^\*\*.*by:/d' $@  > $@.n && mv $@{.n,}

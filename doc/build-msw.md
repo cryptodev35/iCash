@@ -72,12 +72,12 @@ MSYS shell:
 	mkdir miniupnpc
 	cp *.h miniupnpc/
 
-Dash
+iCash
 -------
 MSYS shell:
 
-	cd \dash
+	cd \icash
 	sh autogen.sh
 	sh configure
 	mingw32-make
-	strip dashd.exe
+	strip icashd.exe
